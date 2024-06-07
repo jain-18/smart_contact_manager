@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Smart Contact Manager</title>
+
+</head>
+<body>
+<section>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5; /* Changed background color */
+      color: #333333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #009688;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Image Styles */
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .image-box {
+      flex-basis: calc(50% - 10px); /* Adjusted flex-basis to create gaps between images */
+      margin-bottom: 20px;
+      border: 1px solid #009688;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease; /* Added transition effect */
+    }
+
+    .image-box:hover {
+      transform: translateY(-5px); /* Added hover effect */
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-info {
+      padding: 15px; /* Increased padding */
+      background-color: #009688;
+      color: #ffffff;
+    }
+
+    .image-info h3 {
+      margin-top: 0;
+      font-size: 20px; /* Increased font size */
+      margin-bottom: 10px; /* Added bottom margin */
+    }
+
+    .image-info p {
+      margin: 0; /* Removed top and bottom margin */
+      font-size: 16px; /* Increased font size */
+    }
+
+    /* Media Query for smaller screens */
+    @media screen and (max-width: 768px) {
+      .image-box {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+<div class="container">
+  <h1>About Smart Contact Manager</h1>
+  <div class="image-container">
+    <!-- User Dashboard -->
+    <div class="image-box">
+      <img th:src="@{/img/img1.png}" alt="User Dashboard">
+      <div class="image-info">
+        <h3>User Dashboard</h3>
+        <p>This is the main dashboard where users can manage their contacts, view important information, and perform various tasks.</p>
+      </div>
+    </div>
+
+    <!-- Contact List -->
+    <div class="image-box">
+      <img th:src="@{/img/img2.png}" alt="Contact List">
+      <div class="image-info">
+        <h3>Contact List</h3>
+        <p>The contact list displays all the contacts stored in the user's account, providing quick access to contact details and options for editing or deleting contacts.</p>
+      </div>
+    </div>
+
+    <!-- User Info -->
+    <div class="image-box">
+      <img th:src="@{/img/img3.png}" alt="User Info">
+      <div class="image-info">
+        <h3>User Information</h3>
+        <p>This section contains the user's personal information, such as name, email, and profile picture. Users can update their profile information and manage account settings.</p>
+      </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="image-box">
+      <img th:src="@{/img/img4.png}" alt="Contact Details">
+      <div class="image-info">
+        <h3>Contact Details</h3>
+        <p>When viewing individual contacts, users can see detailed information about each contact, including name, phone number, email address, and any additional notes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</body>
+</html>

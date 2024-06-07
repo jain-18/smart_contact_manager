@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div th:if="${session.message}"   class="alert alert-primary text-center" th:classappend="${session.message.type}" role="alert">
+                            <p class="text-center" th:text="${session.message.content}"></p>
+                            <div th:if="${session.message != null}">
+                                <!-- I consumed the message -->
+                                <div th:text="${@sessionUtilityBean.removeMessageFromSession()}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="m-md-4">Change Password</h3>
+                        <form action="" th:action="@{/user/change-password}" method="post">
+<!--                            old password field-->
+                            <div class="form-group">
+                                <input name="oldPassword" type="text" class="form-control" placeholder="Enter old password">
+                            </div>
+
+<!--                            new password field-->
+
+                            <div class="form-group mt-4">
+                                <input name="newPassword"  type="text" class="form-control" placeholder="Enter New password">
+                            </div>
+
+                            <div class="container text-center mt-4">
+                                <button type="submit" class="btn btn-success">Change</button>
+                                <button type="reset" class="btn btn-warning">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(() => {
+            $(".item").remove("active");
+            $("#settings-link").addClass("active");
+        });
+    </script>
+</section>
+</body>
+</html>

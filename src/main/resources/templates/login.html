@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Login Page</title>-->
+<!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+<!--  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--  <link rel="stylesheet" th:href="@{/css/style.css}">-->
+
+
+<!--  &lt;!&ndash;&#45;&#45;&#45;&#45; Include the above in your HEAD tag &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--</head>-->
+<!--<body class="lo">-->
+<!--<section>-->
+<!--  <div id="login">-->
+<!--    <div class="container">-->
+<!--      <div id="login-row" class="row justify-content-center align-items-center">-->
+<!--        <div id="login-column" class="col-md-6">-->
+<!--          <div id="login-box" class="col-md-12">-->
+<!--            <form id="login-form" class="form" action="#" th:action="@{/dologin}" method="post">-->
+
+<!--              <h3 class="text-center text-info">Login</h3>-->
+<!--              <div th:if="${param.error}" class="alert alert-danger">-->
+<!--                  Invalid Username and Password!!-->
+<!--              </div>-->
+<!--              <div th:if="${param.logout}" class="alert alert-success">-->
+<!--                  You Have Been Logout !!-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="username" class="text-info">Username:</label><br>-->
+<!--                <input type="text" name="username" id="username" class="form-control">-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="password" class="text-info mt-3">Password:</label><br>-->
+<!--                <input type="password" name="password" id="password" class="form-control">-->
+<!--              </div>-->
+
+<!--              <div class="form-group">-->
+<!--                <label for="remember-me" class="text-info mt-2"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>-->
+<!--                <input type="submit" name="submit" class="btn btn-info btn-md mt-2" value="submit">-->
+<!--              </div>-->
+
+<!--              <div id="register-link" class="text-right">-->
+<!--                <a href="#" th:href="@{/signup}" class="text-info">Register here</a>-->
+<!--              </div>-->
+<!--              <div class="container text-center">-->
+<!--                <a th:href="@{/forgot}">Forgot Password</a>-->
+<!--              </div>-->
+<!--            </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--</body>-->
+<!--</html>-->
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <!------ Include the above in your HEAD tag ---------->
+  <style>
+    .lo {
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      height: 100vh;
+    }
+    #login #login-box {
+      margin-top: 80px;
+      max-width: 400px;
+      border: 1px solid #ced4da;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    #login #login-form {
+      margin-top: 20px;
+    }
+    #login #login-form .form-control {
+      border-radius: 0;
+    }
+    #login #login-form .btn-info {
+      border-radius: 0;
+    }
+    #register-link {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body class="lo">
+<section>
+  <div id="login">
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+
+          <div id="login-box">
+            <form id="login-form" class="form" action="#" th:action="@{/dologin}" method="post">
+              <h3 class="text-center text-info">Login</h3>
+              <div th:if="${param.error}" class="alert alert-danger">
+                Invalid Username and Password!!
+              </div>
+              <div th:if="${param.logout}" class="alert alert-success">
+                You Have Been Logout !!
+              </div>
+                <div th:if="${session.message}"   class="alert alert-primary text-center" th:classappend="${session.message.type}" role="alert">
+                    <p class="text-center" th:text="${session.message.content}"></p>
+                    <div th:if="${session.message != null}">
+                        <!-- I consumed the message -->
+                        <div th:text="${@sessionUtilityBean.removeMessageFromSession()}">
+                        </div>
+                    </div>
+                </div>
+              <div class="form-group">
+                <label for="username" class="text-info">Username:</label>
+                <input type="text" name="username" id="username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="password" class="text-info mt-3">Password:</label>
+                <input type="password" name="password" id="password" class="form-control">
+              </div>
+              <div class="form-group mt-2">
+<!--                <label for="remember-me" class="text-info mt-2"><input id="remember-me" name="remember-me" type="checkbox"> Remember me</label>-->
+                <a href="#" th:href="@{/forgot}" style="text-decoration: none" class="text-info">Forgot Password?</a>
+              </div>
+                <div id="register-link" style="text-decoration: none" class="text-right">
+                  <a href="#" th:href="@{/signup}" style="text-decoration: none" class="text-info">Register here</a>
+                </div>
+              <div class="form-group mt-2 d-grid gap-1">
+                <input type="submit" name="submit" class="btn btn-info btn-md mt-2" value="Submit">
+              </div>
+              <div class="container text-center">
+<!--                <a href="#" th:href="@{/forgot}" style="text-decoration: none" class="text-info">Forgot Password</a>-->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+    // Adjust the left margin of the register link based on the width of the form box
+    $(document).ready(function() {
+        var formWidth = $('#login-box').outerWidth();
+        $('#register-link').css('margin-left', 'calc(100% - ' + formWidth + 'px)');
+    });
+</script>
+</body>
+</html>
