@@ -42,6 +42,24 @@ Smart Contact Manager is a robust web application designed to manage contacts ef
 ## Contributing
 We welcome contributions to enhance the Smart Contact Manager. Please fork the repository and submit a pull request.
 
+Images :- 
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/d16a600a-30cc-49af-be72-b3a41b65495e)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/f97cd562-1d5c-4f9d-b97b-ae26e5a1c568)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/70e4946d-8c33-469e-91ac-f6a7cd5b0826)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/8d2458b3-c73a-4f12-bd76-f5502ffc09aa)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/5d3417ae-d736-4edd-bfd2-28cb728cf345)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/c03e7087-123a-42ba-abf3-649a9449e9b3)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/01c23577-d06b-4ad8-be66-8e4cda5f7ed2)
+
+![image](https://github.com/jain-18/smart_contact_manager/assets/134261396/dfa3cb48-e17b-40f8-a2bb-c0f012e739df)
+
+
 
 
 Thank you for using Smart Contact Manager!
